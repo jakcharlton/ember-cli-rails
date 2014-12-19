@@ -1,0 +1,22 @@
+<ul>
+  {{#each}}
+    <li>
+      {{#link-to 'contact' this}}
+        {{lastName}},
+        {{firstName}}
+      {{/link-to}}
+
+      {{view 'stop-watch'}}
+    </li>
+  {{else}}
+    <li>No contacts found.</li>
+  {{/each}}
+</ul>
+
+{{view "select" content=model
+                optionLabelPath="content.email"
+                optionValuePath="content.id"
+                prompt="Pick a person:"
+                selection=selectedPerson}}
+
+
