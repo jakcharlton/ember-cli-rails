@@ -9,5 +9,6 @@ Router.map ->
   @resource 'contacts', ->
     @resource 'contact', { path: '/:contact_id' } 
   @route 'foo'
+  @route 'login'
 
 `export default Router;`

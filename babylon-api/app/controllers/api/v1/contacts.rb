@@ -2,6 +2,17 @@ module API
   module V1
     class Contacts < Grape::API
       include API::V1::Defaults
+      
+      before do
+      #   authenticate_with_http_token do |token, options|
+      #     user_email = options[:user_email].presence
+      #     user       = user_email && User.find_by_email(user_email)
+
+      #     if user && Devise.secure_compare(user.authentication_token, token)
+      #       sign_in user, store: false
+      #     end
+      #   end
+      end         
 
       resource :contacts do
         desc "Return all contacts"

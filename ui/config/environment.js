@@ -19,6 +19,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    crossOriginWhitelist: ['*'],
+    authorizer: 'simple-auth-authorizer:devise'
+  };
+
+  ENV['simple-auth-devise'] = {
+    serverTokenEndpoint: 'http://localhost:3100/users/sign_in',
+  };
 
   ENV.contentSecurityPolicy = {
     'default-src': "'none'",
