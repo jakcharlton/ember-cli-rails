@@ -48,6 +48,10 @@ gem "grape-active_model_serializers"
 gem "grape-swagger-rails"
 gem "rack-cors", require: "rack/cors"
 
+gem 'redis'
+
+gem 'thin'
+
 gem 'rails_12factor', group: :production
 
 group :development do
