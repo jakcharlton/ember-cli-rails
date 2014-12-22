@@ -1,0 +1,4 @@
+html, body {
+  margin: 20px; }
+  html h2, body h2 {
+    color: blue; }
