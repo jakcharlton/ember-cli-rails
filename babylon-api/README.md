@@ -11,10 +11,16 @@ To have changes to the UI app reflected in the Rails app immediately set ember b
 
 `ember build --output-path ../babylon-api/public --watch`
 
-#### Deploying
+#### Deploying UI
 
 The deploy is done by Gruntfile.coffee, taking the ember build to /dist and copying the assets to an S3 bucket, and then adding the asset information into Redis server to be picked up by the main Rails app
 
 `grunt -p`
+
+##### Deploying Rails 
+
+From the root of the two apps, use git subtree to push the Rails app to Heroku
+
+`git subtree push --prefix babylon-api heroku master`
 
 
