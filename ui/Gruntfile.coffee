@@ -63,7 +63,7 @@ module.exports = (grunt) ->
       prod: command: 'ember build --environment=production'
       done: command: "echo Deploy complete, deploy key: #{timestamp}"
 
-  grunt.loadNpmTasks('grunt-debug-task');
+  grunt.loadNpmTasks 'grunt-debug-task';
   grunt.loadNpmTasks 'grunt-s3'
   grunt.loadNpmTasks 'grunt-redis-manifest'
   grunt.loadNpmTasks 'grunt-shell'
@@ -72,11 +72,17 @@ module.exports = (grunt) ->
   # Default task(s). flag can be '-prod' or '-p'
   target = if grunt.option('prod') or grunt.option('p') then 'prod' else 'dev'
 
+  grunt.task.registerTask 'update_yaml', 'Update Rails YAML with deploy key', () ->
+    YAML = require('yamljs');
+    conf = { 'deploy': { 'main': timestamp } }
+    grunt.file.write('../babylon-api/config/frontend_deploy.yml', YAML.stringify(conf));
+
   if target is 'prod'
     grunt.registerTask 'default', [ "shell:#{target}"
                                     'replace'
                                     's3'
-                                    "redis:#{target}"
+                                    "redis:#{target}",
+                                    "update_yaml",
                                     "shell:done" ]
   else
     grunt.registerTask 'default', [ "shell:dev" ]
