@@ -1,6 +1,6 @@
 eval("//# sourceURL=vendor/ember-cli/loader.js");
 
-;eval("define(\"ui/adapters/application\", \n  [\"ember-data\",\"exports\"],\n  function(__dependency1__, __exports__) {\n    \"use strict\";\n    var DS = __dependency1__[\"default\"];\n\n    __exports__[\"default\"] = DS.ActiveModelAdapter.extend({\n      namespace: \'api/v1\',\n      host: \'http://localhost:3100\'\n    });\n  });//# sourceURL=ui/adapters/application.js");
+;eval("define(\"ui/adapters/application\", \n  [\"ember-data\",\"exports\"],\n  function(__dependency1__, __exports__) {\n    \"use strict\";\n    var DS = __dependency1__[\"default\"];\n\n    __exports__[\"default\"] = DS.ActiveModelAdapter.extend({\n      namespace: \'api/v1\'\n    });\n  });//# sourceURL=ui/adapters/application.js");
 
 ;eval("define(\"ui/app\", \n  [\"ember\",\"ember/resolver\",\"ember/load-initializers\",\"ui/config/environment\",\"exports\"],\n  function(__dependency1__, __dependency2__, __dependency3__, __dependency4__, __exports__) {\n    \"use strict\";\n    var Ember = __dependency1__[\"default\"];\n    var Resolver = __dependency2__[\"default\"];\n    var loadInitializers = __dependency3__[\"default\"];\n    var config = __dependency4__[\"default\"];\n\n    Ember.MODEL_FACTORY_INJECTIONS = true;\n\n    var App = Ember.Application.extend({\n      modulePrefix: config.modulePrefix,\n      podModulePrefix: config.podModulePrefix,\n      Resolver: Resolver\n    });\n\n    loadInitializers(App, config.modulePrefix);\n\n    __exports__[\"default\"] = App;\n  });//# sourceURL=ui/app.js");
 
