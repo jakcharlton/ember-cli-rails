@@ -17,6 +17,30 @@ The deploy is done by Gruntfile.coffee, taking the ember build to /dist and copy
 
 `grunt -p`
 
+Grunt settings are read from env.json in the root folder of the UI app - in a format similar to :
+
+```javascript
+{
+  "AWS": {
+    "AccessKeyId": "SECRETID",
+    "SecretKey": "SECRETKEY",
+    "bucket":"babylon-ui"
+  },
+  "REDIS": {
+    "development": {
+      "host": "localhost",
+      "port": "6379"
+      },
+    "production": {
+      "host": "redis-host.com",
+      "port": "9233",
+      "password": "SECRET PASSWORD"
+    }
+  }
+}
+```
+
+
 ##### Deploying Rails 
 
 From the root of the two apps, use git subtree to push the Rails app to Heroku
