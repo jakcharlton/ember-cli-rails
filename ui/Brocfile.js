@@ -3,6 +3,7 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
+  outputPaths: { app: { html: 'app.html' }},
   fingerprint: { prepend: '//diilsbyvwmvxo.cloudfront.net/' }
 });
 

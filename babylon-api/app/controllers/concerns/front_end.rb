@@ -7,9 +7,9 @@ module FrontEnd
     @namespace = namespace
 
     index_key = if @namespace
-                  "#{@namespace}:#{deploy_key}:index.html"
+                  "#{@namespace}:#{deploy_key}:app.html"
                 else
-                  "#{deploy_key}:index.html"
+                  "#{deploy_key}:app.html"
                 end
 
     $redis.get index_key

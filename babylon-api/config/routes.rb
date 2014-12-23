@@ -4,8 +4,16 @@ Rails.application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  namespace :api, defaults: { format: 'json'  } do
+    scope '/app', module: :app do
+      resources :contacts
+    end
+  end
+
   mount API::Base, at: "/"
   mount GrapeSwaggerRails::Engine, at: "/documentation"
 
-    root 'pages#index'
+  root 'pages#index'
+
+  get  '*path' =>  'pages#index'
 end

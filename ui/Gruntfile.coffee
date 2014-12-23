@@ -36,21 +36,22 @@ module.exports = (grunt) ->
         options:
           host: '<%= env.REDIS.development.host %>'
           port: '<%= env.REDIS.development.port %>'
-        files: src : ["dist/index.html"]
+        files: src : ["dist/app.html"]
       prod:
         options:
           host: '<%= env.REDIS.production.host %>'
           port: '<%= env.REDIS.production.port %>'
           connectionOptions: auth_pass: '<%= env.REDIS.production.password %>'
-        files: src : ["dist/index.html"]
+        files: src : ["dist/app.html"]
 
     replace:
       dist:
-        src: ['dist/*.html']
+        src: ['dist/*.html','dist/**/*.js','dist/**/*.css']
         overwrite: true
-        replacements: [
+        replacements: [{
           from: 'cloudfront.net/assets'
           to: "cloudfront.net/#{timestamp}/assets"
+          }
         ]
 
     shell:
@@ -62,6 +63,7 @@ module.exports = (grunt) ->
       prod: command: 'ember build --environment=production'
       done: command: "echo Deploy complete, deploy key: #{timestamp}"
 
+  grunt.loadNpmTasks('grunt-debug-task');
   grunt.loadNpmTasks 'grunt-s3'
   grunt.loadNpmTasks 'grunt-redis-manifest'
   grunt.loadNpmTasks 'grunt-shell'
