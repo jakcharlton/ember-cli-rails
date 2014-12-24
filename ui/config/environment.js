@@ -21,11 +21,18 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     crossOriginWhitelist: ['*'],
-    authorizer: 'simple-auth-authorizer:devise'
+    authorizer: 'simple-auth-authorizer:devise',
+    store: 'simple-auth-session-store:cookie'
   };
 
   ENV['simple-auth-devise'] = {
     serverTokenEndpoint: '/users/sign_in',
+  };
+
+  ENV['simple-auth-cookie-store'] = {
+    cookieName: 'my_app_auth_session',
+    cookieDomain: 'lvh.me',
+    cookieExpirationTime: 1000
   };
 
   ENV.contentSecurityPolicy = {
