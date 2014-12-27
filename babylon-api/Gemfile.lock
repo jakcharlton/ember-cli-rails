@@ -1,21 +1,3 @@
-GIT
-  remote: git://github.com/gregbell/active_admin.git
-  revision: f51d96dddb5e5be182220037f2d70117b9350303
-  specs:
-    activeadmin (1.0.0.pre)
-      arbre (~> 1.0, >= 1.0.2)
-      bourbon
-      coffee-rails
-      formtastic (~> 3.1)
-      formtastic_i18n
-      inherited_resources (~> 1.4, != 1.5.0)
-      jquery-rails
-      jquery-ui-rails (~> 5.0)
-      kaminari (~> 0.15)
-      rails (>= 3.2, < 4.2)
-      ransack (~> 1.3)
-      sass-rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -48,8 +30,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
-    arbre (1.0.2)
-      activesupport (>= 3.0.0)
     arel (5.0.1.20140414130214)
     ast (2.0.0)
     astrolabe (1.3.0)
@@ -61,9 +41,6 @@ GEM
     bcrypt (3.1.9)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (3.2.3)
-      sass (~> 3.2)
-      thor
     builder (3.2.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
@@ -79,13 +56,6 @@ GEM
     coderay (1.1.0)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
-    coffee-rails (4.1.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
-    coffee-script (2.3.0)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.8.0)
     colored (1.2)
     daemons (1.1.9)
     database_cleaner (1.3.0)
@@ -111,10 +81,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
-    formtastic (3.1.2)
-      actionpack (>= 3.2.13)
-    formtastic_i18n (0.1.1)
-    grape (0.9.0)
+    grape (0.10.0)
       activesupport
       builder
       hashie (>= 2.1.0)
@@ -137,27 +104,14 @@ GEM
     grape-swagger-rails (0.0.10)
       grape-swagger (~> 0.7.2)
       railties (>= 3.2.12)
-    has_scope (0.6.0.rc)
-      actionpack (>= 3.2, < 5)
-      activesupport (>= 3.2, < 5)
     hashie (3.3.2)
     hike (1.2.3)
-    i18n (0.6.11)
+    i18n (0.7.0)
     ice_nine (0.11.1)
-    inherited_resources (1.5.1)
-      actionpack (>= 3.2, < 4.2)
-      has_scope (~> 0.6.0.rc)
-      railties (>= 3.2, < 4.2)
-      responders (~> 1.0)
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
-    jquery-ui-rails (5.0.3)
-      railties (>= 3.2.16)
     json (1.8.1)
-    kaminari (0.16.1)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
     kramdown (1.5.0)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -172,7 +126,7 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
-    parser (2.2.0.pre.8)
+    parser (2.2.0)
       ast (>= 1.1, < 3.0)
       slop (~> 3.4, >= 3.4.5)
     pg (0.17.1)
@@ -181,8 +135,6 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    polyamorous (1.1.0)
-      activerecord (>= 3.0)
     powerpack (0.0.9)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -198,12 +150,12 @@ GEM
     pry-theme (1.1.3)
       coderay (~> 1.1)
       json (~> 1.8)
-    quiet_assets (1.0.3)
+    quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-accept (0.4.5)
       rack (>= 0.4)
-    rack-cors (0.2.9)
+    rack-cors (0.3.0)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
     rack-test (0.6.2)
@@ -221,7 +173,7 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_serve_static_assets (0.0.2)
+    rails_serve_static_assets (0.0.3)
     rails_stdout_logging (0.0.3)
     railties (4.1.8)
       actionpack (= 4.1.8)
@@ -230,12 +182,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.4.2)
-    ransack (1.5.1)
-      actionpack (>= 3.0)
-      activerecord (>= 3.0)
-      activesupport (>= 3.0)
-      i18n
-      polyamorous (~> 1.1)
     redis (3.2.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
@@ -261,7 +207,7 @@ GEM
       powerpack (~> 0.0.6)
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.4)
-    ruby-progressbar (1.7.0)
+    ruby-progressbar (1.7.1)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -290,8 +236,6 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
-    turbolinks (2.5.3)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.6.0)
@@ -315,7 +259,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  activeadmin!
   capybara
   capybara-screenshot
   database_cleaner
@@ -344,5 +287,4 @@ DEPENDENCIES
   spring
   spring-commands-rspec
   thin
-  turbolinks
   uglifier (>= 1.3.0)

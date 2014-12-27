@@ -15,5 +15,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
 
+  # Experimental
+  get '/assets/:name.:ext' => redirect {|params, req| "http://guides.rubyonrails.org/images/#{params[:name]}.#{params[:ext]}"}
+
   get  '*path' =>  'pages#index'
 end
