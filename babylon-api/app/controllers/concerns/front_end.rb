@@ -1,9 +1,10 @@
+# Retrieves the index page and handles deploys from Grunt/S3/Ember
 module FrontEnd
   extend ActiveSupport::Concern
 
   private
 
-  def index_html namespace=nil
+  def index_html(namespace = nil)
     @namespace = namespace
 
     index_key = if @namespace
@@ -12,7 +13,7 @@ module FrontEnd
                   "#{deploy_key}:app.html"
                 end
 
-    $redis.get index_key
+    Settings::REDIS.get index_key
   end
 
   def deploy_key
@@ -28,7 +29,7 @@ module FrontEnd
   def latest_deploy
     manifest_key = @namespace ? "#{@namespace}:latest_ten_deploys" : 'latest_ten_deploys'
 
-    $redis.lindex manifest_key, 0
+    Settings::REDIS.lindex manifest_key, 0
   end
 
   def current_deploy

@@ -1,10 +1,11 @@
+# Controller for all 'static' pages
 class PagesController < ApplicationController
   include FrontEnd
   include HtmlHandler
 
   def index
     if Rails.env.development?
-     @index_html =  File.read Rails.root.join('public','app.html')
+      @index_html = File.read(Rails.root.join('public', 'app.html'))
     else
       @index_html = index_html
     end

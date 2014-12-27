@@ -1,21 +1,20 @@
+# User model, all users of the system
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
   before_save :ensure_authentication_token
 
   def ensure_authentication_token
-    if authentication_token.blank?
-      self.authentication_token = generate_authentication_token
-    end
+    return unless authentication_token.blank?
+    self.authentication_token = generate_authentication_token
   end
 
   def reset_authentication_token
     self.authentication_token = generate_authentication_token
     self.save!
   end
-private
+
+  private
 
   def generate_authentication_token
     loop do
@@ -23,5 +22,4 @@ private
       break token unless User.where(authentication_token: token).first
     end
   end
-
 end

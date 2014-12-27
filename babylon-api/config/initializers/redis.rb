@@ -1,6 +1,5 @@
-uri = if Rails.env.development?
-  URI.parse 'redis://redistogo:08f598500f33b32f68cb58f3a60a5414@mummichog.redistogo.com:9233' #'redis://localhost:6379/'
-else
-  URI.parse  ENV['REDISCLOUD_URL']
+# Configuration settings
+module Settings
+  uri = Rails.env.development? ? URI.parse('redis://localhost:6379/') : URI.parse(ENV['REDISCLOUD_URL'])
+  REDIS = Redis.new host: uri.host, port: uri.port, password: uri.password
 end
-$redis = Redis.new host: uri.host, port: uri.port, password: uri.password

@@ -1,9 +1,10 @@
+# Handles specific changes to make to the HTML for Ember
 module HtmlHandler
   extend ActiveSupport::Concern
 
   private
 
-  def insert_flags *flags
+  def insert_flags(*flags)
     return if flags.empty?
     concat_flags = flags.map { |flag| send flag.concat('_flag') }.join ','
     flag_tags = "<script>window.ENV = {#{ concat_flags }};</script>"
@@ -20,7 +21,7 @@ module HtmlHandler
   end
 
   def ab_test_flag
-    ab = %w[A B].sample
+    ab = %w([A B]).sample
     "AB: '#{ab}'"
   end
 
