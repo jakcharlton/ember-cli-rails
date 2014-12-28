@@ -13,7 +13,7 @@ module FrontEnd
                   "#{deploy_key}:app.html"
                 end
 
-    Settings::REDIS.get index_key
+    redis.get index_key
   end
 
   def deploy_key
@@ -29,7 +29,7 @@ module FrontEnd
   def latest_deploy
     manifest_key = @namespace ? "#{@namespace}:latest_ten_deploys" : 'latest_ten_deploys'
 
-    Settings::REDIS.lindex manifest_key, 0
+    redis.lindex manifest_key, 0
   end
 
   def current_deploy
@@ -42,4 +42,9 @@ module FrontEnd
     frontend_deploy = YAML.load File.read Rails.root.join('config/frontend_deploy.yml')
     frontend_deploy.with_indifferent_access[:deploy]
   end
+  
+  def redis
+    uri = BabylonApi::Application.config.redis_uri
+    @redis ||= Redis.new(host: uri.host, port: uri.port, password: uri.password)
+  end  
 end
